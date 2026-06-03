@@ -20,9 +20,9 @@
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #45505b; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #0563bb; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --default-color: #263238; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #0f172a; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #0b66c3; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -40,7 +40,7 @@
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f9f9f9;
+  --background-color: #f4f8fb;
   --surface-color: #ffffff;
 }
 
@@ -64,6 +64,7 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
+  line-height: 1.7;
 }
 
 a {
@@ -461,7 +462,7 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 60px 0;
+  padding: 76px 0;
   overflow: clip;
 }
 
@@ -470,16 +471,17 @@ section,
 --------------------------------------------------------------*/
 .section-title {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 48px;
   position: relative;
 }
 
 .section-title h2 {
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
+  letter-spacing: 0.4px;
 }
 
 .section-title h2:before {
@@ -510,6 +512,10 @@ section,
 
 .section-title p {
   margin-bottom: 0;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  color: color-mix(in srgb, var(--default-color), transparent 18%);
 }
 
 /*--------------------------------------------------------------
@@ -537,7 +543,7 @@ section,
 
 .hero:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 30%);
+  background: linear-gradient(90deg, rgba(244, 248, 251, 0.96) 0%, rgba(244, 248, 251, 0.82) 46%, rgba(244, 248, 251, 0.44) 100%);
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -550,13 +556,15 @@ section,
 
 .hero h2 {
   margin: 0;
-  font-size: 64px;
-  font-weight: 700;
+  font-size: 68px;
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
 .hero p {
-  margin: 5px 0 0 0;
+  margin: 8px 0 0 0;
   font-size: 26px;
+  color: color-mix(in srgb, var(--default-color), transparent 8%);
 }
 
 .hero p span {
@@ -570,15 +578,24 @@ section,
 
 .hero .social-links a {
   font-size: 20px;
-  display: inline-block;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  color: var(--accent-color);
+  background: var(--surface-color);
   line-height: 1;
-  margin-right: 20px;
+  margin-right: 12px;
+  border-radius: 50%;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
   transition: 0.3s;
 }
 
 .hero .social-links a:hover {
-  color: var(--accent-color);
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  transform: translateY(-3px);
 }
 
 @media (max-width: 768px) {
@@ -596,7 +613,21 @@ section,
 --------------------------------------------------------------*/
 .about .content h2 {
   font-weight: 700;
-  font-size: 24px;
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.about img {
+  border-radius: 22px;
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.16);
+}
+
+.about .content {
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 88%);
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
 }
 
 .about .content ul {
@@ -664,10 +695,13 @@ section,
 # Skills Section
 --------------------------------------------------------------*/
 .skills .progress {
-  height: 60px;
+  height: 64px;
   display: block;
-  background: none;
-  border-radius: 0;
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
 }
 
 .skills .progress .skill {
@@ -676,7 +710,7 @@ section,
   margin: 0 0 6px 0;
   text-transform: uppercase;
   display: block;
-  font-weight: 600;
+  font-weight: 700;
   font-family: var(--heading-font);
 }
 
@@ -687,14 +721,17 @@ section,
 
 .skills .progress-bar-wrap {
   background: color-mix(in srgb, var(--default-color), transparent 90%);
-  height: 10px;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
 }
 
 .skills .progress-bar {
   width: 1px;
-  height: 10px;
+  height: 8px;
   transition: 0.9s;
-  background-color: var(--accent-color);
+  background: linear-gradient(90deg, var(--accent-color), #38bdf8);
+  border-radius: 999px;
 }
 
 /*--------------------------------------------------------------
@@ -730,6 +767,9 @@ section,
   display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  border-radius: 999px;
 }
 
 .resume .resume-item ul {
@@ -862,12 +902,13 @@ section,
 --------------------------------------------------------------*/
 .services .service-item {
   background-color: var(--surface-color);
-  box-shadow: 0px 5px 90px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
   height: 100%;
-  padding: 60px 30px;
+  padding: 44px 30px;
   text-align: center;
   transition: 0.3s;
-  border-radius: 5px;
+  border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 90%);
 }
 
 .services .service-item .icon {
@@ -911,7 +952,8 @@ section,
 }
 
 .services .service-item:hover {
-  box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.14);
+  transform: translateY(-6px);
 }
 
 .services .service-item.item-cyan i {
