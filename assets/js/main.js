@@ -226,4 +226,20 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * Parallax effect on hero image
+   */
+  const heroImg = document.querySelector('#hero img');
+  if (heroImg) {
+    window.addEventListener('scroll', () => {
+      const hero = document.querySelector('#hero');
+      if (!hero) return;
+      const rect = hero.getBoundingClientRect();
+      const scrollProgress = -rect.top / rect.height;
+      if (scrollProgress > 0 && scrollProgress < 1) {
+        heroImg.style.transform = `translateY(${scrollProgress * 60}px)`;
+      }
+    });
+  }
+
 })();
