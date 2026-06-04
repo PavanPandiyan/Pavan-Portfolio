@@ -361,35 +361,62 @@ h6 {
 
 #preloader .preloader-logo {
   font-family: var(--heading-font);
-  font-size: 42px;
+  font-size: 56px;
   font-weight: 800;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   color: #1a1a1a;
-  margin-bottom: 24px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
 }
 
 #preloader .preloader-logo span {
   display: inline-block;
   opacity: 0;
-  animation: preloader-letter 0.4s ease forwards;
+  animation: preloader-letter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 #preloader .preloader-logo span:nth-child(1) { animation-delay: 0.0s; }
-#preloader .preloader-logo span:nth-child(2) { animation-delay: 0.15s; }
-#preloader .preloader-logo span:nth-child(3) { animation-delay: 0.3s; }
-#preloader .preloader-logo span:nth-child(4) { animation-delay: 0.45s; }
-#preloader .preloader-logo span:nth-child(5) { animation-delay: 0.6s; }
-#preloader .preloader-logo span:nth-child(6) { animation-delay: 0.75s; }
-#preloader .preloader-logo span:nth-child(7) { animation-delay: 0.9s; }
+#preloader .preloader-logo span:nth-child(2) { animation-delay: 0.12s; }
+#preloader .preloader-logo span:nth-child(3) { animation-delay: 0.24s; }
+#preloader .preloader-logo span:nth-child(4) { animation-delay: 0.36s; }
+#preloader .preloader-logo span:nth-child(5) { animation-delay: 0.48s; }
+#preloader .preloader-logo span:nth-child(7) { animation-delay: 0.72s; }
+
+#preloader .preloader-logo .preloader-dot {
+  font-size: 32px;
+  color: #1a1a1a;
+  margin: 0 10px;
+  animation: preloader-dot 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+  transform: scale(0);
+}
+
+#preloader .preloader-line {
+  width: 0;
+  height: 2px;
+  background: #1a1a1a;
+  margin: 20px auto 18px;
+  border-radius: 2px;
+  animation: preloader-line 0.5s ease-out forwards;
+  animation-delay: 1.0s;
+  opacity: 0;
+}
 
 #preloader .preloader-bar {
-  width: 120px;
+  width: 160px;
   height: 3px;
   background: #e5e5e5;
   border-radius: 3px;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+  animation: preloader-bar 1.5s ease-in-out infinite;
+  animation-delay: 1.2s;
+  opacity: 0;
 }
 
 #preloader .preloader-bar::after {
@@ -399,28 +426,61 @@ h6 {
   left: -40%;
   width: 40%;
   height: 100%;
-  background: #1a1a1a;
+  background: linear-gradient(90deg, transparent, #1a1a1a, transparent);
   border-radius: 3px;
-  animation: preloader-bar 1.5s ease-in-out infinite;
+  animation: preloader-shimmer 1.5s ease-in-out infinite;
 }
 
 @keyframes preloader-letter {
   0% {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(50px) scale(0.5) rotate(12deg);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  65% {
+    transform: translateY(-6px) scale(1.06) rotate(-1deg);
+  }
+  80% {
+    transform: translateY(2px) scale(0.98);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1) rotate(0deg);
   }
 }
 
-@keyframes preloader-bar {
+@keyframes preloader-dot {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes preloader-line {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 180px;
+    opacity: 1;
+  }
+}
+
+@keyframes preloader-shimmer {
   0% {
     left: -40%;
   }
   50% {
-    left: 60%;
+    left: 100%;
   }
   100% {
     left: 100%;
