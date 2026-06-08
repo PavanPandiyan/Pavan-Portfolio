@@ -365,44 +365,62 @@
   </div><!-- End Section Title -->
 
   <div class="container">
-    <div class="row gy-4">
+    <div class="init-swiper">
+      <div class="swiper-wrapper">
 
-      <!-- PG Project -->
-      <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item item-cyan position-relative">
-          <div class="icon">
-            <svg width="100" height="100" viewBox="0 0 600 600">
-              <path fill="#f5f5f5" d="..."></path>
-            </svg>
-            <i class="bi bi-building"></i>
+        <!-- PG Project -->
+        <div class="swiper-slide">
+          <div class="service-item item-cyan position-relative" style="height: 100%;">
+            <div class="icon">
+              <svg width="100" height="100" viewBox="0 0 600 600">
+                <path fill="#f5f5f5" d="..."></path>
+              </svg>
+              <i class="bi bi-building"></i>
+            </div>
+            <a href="https://github.com/PavanPandiyan/AU_Room_Reservation" class="stretched-link" target="_blank">
+              <h3>PG Project – Guest House Room Reservation</h3>
+            </a>
+            <p>
+              A web-based system built with HTML, CSS, PHP, and MySQL to automate room booking and guesthouse management. It includes secure login, real-time room availability, booking forms, admin approval workflow, and responsive design support for mobile users.
+            </p>
           </div>
-          <a href="https://github.com/PavanPandiyan/AU_Room_Reservation" class="stretched-link" target="_blank">
-            <h3>PG Project – Guest House Room Reservation</h3>
-          </a>
-          <p>
-            A web-based system built with HTML, CSS, PHP, and MySQL to automate room booking and guesthouse management. It includes secure login, real-time room availability, booking forms, admin approval workflow, and responsive design support for mobile users.
-          </p>
-        </div>
-      </div><!-- End PG Project Item -->
+        </div><!-- End PG Project Item -->
 
-      <!-- UG Project -->
-      <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="service-item item-orange position-relative">
-          <div class="icon">
-            <svg width="100" height="100" viewBox="0 0 600 600">
-              <path fill="#f5f5f5" d="..."></path>
-            </svg>
-            <i class="bi bi-list-check"></i>
+        <!-- UG Project -->
+        <div class="swiper-slide">
+          <div class="service-item item-orange position-relative" style="height: 100%;">
+            <div class="icon">
+              <svg width="100" height="100" viewBox="0 0 600 600">
+                <path fill="#f5f5f5" d="..."></path>
+              </svg>
+              <i class="bi bi-list-check"></i>
+            </div>
+            <a href="https://github.com/PavanPandiyan/ToDo-List/tree/main/todo" class="stretched-link" target="_blank">
+              <h3>UG Project – To-Do List App</h3>
+            </a>
+            <p>
+              A clean and interactive task management app built using HTML, CSS, and JavaScript. Supports adding, deleting, and marking tasks complete, with persistent storage using localStorage.
+            </p>
           </div>
-          <a href="https://github.com/PavanPandiyan/ToDo-List/tree/main/todo" class="stretched-link" target="_blank">
-            <h3>UG Project – To-Do List App</h3>
-          </a>
-          <p>
-            A clean and interactive task management app built using HTML, CSS, and JavaScript. Supports adding, deleting, and marking tasks complete, with persistent storage using localStorage.
-          </p>
-        </div>
-      </div><!-- End UG Project Item -->
+        </div><!-- End UG Project Item -->
 
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-config" style="display:none;">
+        {
+          "slidesPerView": 1,
+          "spaceBetween": 24,
+          "loop": true,
+          "autoplay": { "delay": 4000, "disableOnInteraction": false },
+          "pagination": { "el": ".swiper-pagination", "clickable": true },
+          "navigation": { "nextEl": ".swiper-button-next", "prevEl": ".swiper-button-prev" },
+          "breakpoints": {
+            "768": { "slidesPerView": 2 }
+          }
+        }
+      </div>
     </div>
   </div>
 </section>

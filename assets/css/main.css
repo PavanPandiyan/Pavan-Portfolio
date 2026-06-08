@@ -1937,3 +1937,70 @@ section,
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
+
+/* Swiper slider for projects */
+#AcademicProjects .init-swiper {
+  padding-bottom: 50px;
+}
+
+#AcademicProjects .swiper-pagination {
+  bottom: 0 !important;
+}
+
+#AcademicProjects .swiper-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #d4d4d4;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+#AcademicProjects .swiper-pagination .swiper-pagination-bullet-active {
+  background: var(--accent-color);
+  width: 24px;
+  border-radius: 5px;
+}
+
+#AcademicProjects .swiper-button-next,
+#AcademicProjects .swiper-button-prev {
+  width: 44px;
+  height: 44px;
+  background: var(--surface-color);
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease;
+}
+
+#AcademicProjects .swiper-button-next::after,
+#AcademicProjects .swiper-button-prev::after {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+#AcademicProjects .swiper-button-next:hover,
+#AcademicProjects .swiper-button-prev:hover {
+  background: var(--accent-color);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+#AcademicProjects .swiper-button-next:hover::after,
+#AcademicProjects .swiper-button-prev:hover::after {
+  color: var(--contrast-color);
+}
+
+#AcademicProjects .swiper-button-next {
+  right: -20px;
+}
+
+#AcademicProjects .swiper-button-prev {
+  left: -20px;
+}
+
+@media (max-width: 768px) {
+  #AcademicProjects .swiper-button-next,
+  #AcademicProjects .swiper-button-prev {
+    display: none;
+  }
+}
