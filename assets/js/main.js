@@ -243,33 +243,6 @@
   }
 
   /**
-   * Custom cursor follower
-   */
-  const cursor = document.querySelector('.cursor-follower');
-  if (cursor && !('ontouchstart' in window)) {
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    function animateCursor() {
-      cursorX += (mouseX - cursorX) * 0.1;
-      cursorY += (mouseY - cursorY) * 0.1;
-      cursor.style.transform = `translate(${cursorX - 20}px, ${cursorY - 20}px)`;
-      requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-
-    document.querySelectorAll('a, button, .service-item, .portfolio-item, .resume-item, .info-item').forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('cursor-grow'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-grow'));
-    });
-  }
-
-  /**
    * Time-based greeting
    */
   const greetingEl = document.querySelector('.greeting');

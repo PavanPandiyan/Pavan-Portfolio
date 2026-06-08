@@ -149,30 +149,6 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading-color); font-family: var(--heading
     box-shadow: 4px 0 30px rgba(0, 0, 0, 0.08);
 }
 
-/*--------------------------------------------------------------
-# Custom Cursor Follower
---------------------------------------------------------------*/
-.cursor-follower {
-  width: 40px;
-  height: 40px;
-  border: 1.5px solid var(--accent-color);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 99999;
-  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, border-color 0.3s ease;
-  transform: translate(-20px, -20px);
-  will-change: transform;
-  mix-blend-mode: difference;
-}
-
-.cursor-follower.cursor-grow {
-  width: 56px;
-  height: 56px;
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  border-color: var(--accent-color);
-}
-
 @media (hover: none) and (pointer: coarse) {
   .cursor-follower { display: none; }
 }
