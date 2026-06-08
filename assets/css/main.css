@@ -147,7 +147,35 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading-color); font-family: var(--heading
     width: 300px;
     left: -100%;
     box-shadow: 4px 0 30px rgba(0, 0, 0, 0.08);
-  }
+}
+
+/*--------------------------------------------------------------
+# Custom Cursor Follower
+--------------------------------------------------------------*/
+.cursor-follower {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid var(--accent-color);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  transform: translate(-20px, -20px);
+  will-change: transform;
+  mix-blend-mode: difference;
+}
+
+.cursor-follower.cursor-grow {
+  width: 56px;
+  height: 56px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-color: var(--accent-color);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .cursor-follower { display: none; }
+}
 }
 
 @media (min-width: 1200px) and (max-width: 1600px) {
@@ -593,6 +621,10 @@ section, .section {
   font-size: 26px;
   font-weight: 400;
   color: color-mix(in srgb, var(--default-color), transparent 8%);
+}
+
+.hero p .greeting {
+  display: inline;
 }
 
 .hero p span {

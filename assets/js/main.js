@@ -242,4 +242,69 @@
     });
   }
 
+  /**
+   * Custom cursor follower
+   */
+  const cursor = document.querySelector('.cursor-follower');
+  if (cursor && !('ontouchstart' in window)) {
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+      cursorX += (mouseX - cursorX) * 0.1;
+      cursorY += (mouseY - cursorY) * 0.1;
+      cursor.style.transform = `translate(${cursorX - 20}px, ${cursorY - 20}px)`;
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    document.querySelectorAll('a, button, .service-item, .portfolio-item, .resume-item, .info-item').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('cursor-grow'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-grow'));
+    });
+  }
+
+  /**
+   * Time-based greeting
+   */
+  const greetingEl = document.querySelector('.greeting');
+  if (greetingEl) {
+    const hour = new Date().getHours();
+    let greeting = 'Hello';
+    if (hour < 12) greeting = 'Good Morning';
+    else if (hour < 17) greeting = 'Good Afternoon';
+    else greeting = 'Good Evening';
+    greetingEl.textContent = greeting;
+  }
+
+  /**
+   * Live age calculator
+   */
+  const ageEl = document.querySelector('.live-age');
+  if (ageEl) {
+    const birthDate = new Date(2002, 11, 12);
+    function updateAge() {
+      const now = new Date();
+      let years = now.getFullYear() - birthDate.getFullYear();
+      let months = now.getMonth() - birthDate.getMonth();
+      let days = now.getDate() - birthDate.getDate();
+      if (days < 0) {
+        months--;
+        const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+      ageEl.textContent = `${years}`;
+    }
+    updateAge();
+  }
+
 })();
